@@ -7,6 +7,7 @@ interface Section {
     title: string;
     imgUrl: string;
     size?: string;
+    linkUrl: string;
     id: string;
 }
 
@@ -25,32 +26,35 @@ class Directory extends React.Component<{}, DirectoryState> {
                     title: 'hats',
                     imgUrl: 'https://i.ibb.co/cvpntL1/hats.png',
                     id: '1',
+                    linkUrl: 'hats'
                 },
                 {
                     title: 'jackets',
                     imgUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
                     id: '2',
+                    linkUrl: ''
                 },
                 {
                     title: 'sneakers',
                     imgUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
                     id: '3',
+                    linkUrl: ''
                 },
                 {
                     title: 'women',
                     imgUrl: 'https://i.ibb.co/GCCdy8t/women.png',
                     size: 'large',
                     id: '4',
+                    linkUrl: ''
                 },
                 {
                     title: 'men',
                     imgUrl: 'https://i.ibb.co/R70vBrQ/men.png',
                     size: 'large',
                     id: '5',
+                    linkUrl: ''
                 }
-
             ]
-
         }
     }
 
@@ -58,9 +62,9 @@ class Directory extends React.Component<{}, DirectoryState> {
         return (
             <div className="directory-menu">
                 {
-                    this.state.sections.map(({ title, imgUrl, id, size }) =>
+                    this.state.sections.map(({ id, ...otherProps}) =>
                     (
-                        <MenuItem key={id} title={title} imgUrl={imgUrl} size={size} />
+                        <MenuItem key={id} {...otherProps} />
                     )
                     )
                 }
