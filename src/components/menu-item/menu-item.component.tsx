@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import "./menu-item.style.scss";
 import { useNavigate } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ type AppProps = {
     linkUrl: string;
 };
 
-const MenuItem = ({ title, imgUrl, size, linkUrl }: AppProps) => {
+const MenuItem: FC<AppProps> = ({ title, imgUrl, size, linkUrl }) => {
 
     const navigate = useNavigate();
 
